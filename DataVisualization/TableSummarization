@@ -1,0 +1,42 @@
+from sklearn.datasets import load_wine
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import stats
+
+#Display all rows in a dataframe
+pd.set_option('display.max_rows', None)
+
+#Load the wine dataset
+data = load_wine()
+df = pd.DataFrame(data.data, columns=data.feature_names)
+df['target'] = pd.Series(data.target)
+
+print('\nFeature - target categories:')
+print(df['target'].unique())
+
+#6.1 Target is the categorical feature
+df['target'] = df['target'].astype('category')
+print('\nFrequency of the target categories:')
+
+#6.1 Compute the frequency of the categorical feature target
+target = df['target'].value_counts()/len(df)
+target
+
+"""
+6.2
+Compute univariate and multivariate summaries for all the numerical features. 
+Group observations by the categorical feature and 
+compute the corresponding median for each remaining numerical feature.
+"""
+
+#Compute univariate and multivariate summaries for all the numerical features. 
+print('\nUnivariate summaries for wine dataset:')
+display(df.describe())
+
+print('\nMultivariate summaries for wine dataset:')
+display(df.corr())
+
+#Group observations by the categorical feature 
+#Compute the corresponding median for each remaining numerical feature.
+print('\nGrouping by target and computing the median for other features:')
+display(df.groupby('target').median())
