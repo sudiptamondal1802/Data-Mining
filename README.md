@@ -9,3 +9,7 @@ Data mining is the key component for Data Science and in fact it was previously 
 
 In this repository, various stages are covered with Python programming with some useful libraries like Pandas and Numpy for data processing tasks, matplotlib, seaborn for the data visualization which forms the key to presentation.
 Some machine learning methods have been covered as well for pattern recognition.
+
+
+While mining the data we need to be careful that the mining is ethical and that it is being done only for the benefit of the society, avoid misuse of data, privacy-preserving so that personal data is not disclosed.
+
